@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="KTV_MS.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="~/Content/hover.css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://demo.geekslabs.com/materialize/v2.1/layout03/js/plugins/data-tables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/alertify.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert/1.1.3/sweetalert.css" />
+
+    <link rel="stylesheet" href="http://demo.geekslabs.com/materialize-v1.0/js/plugins/prism/prism.css" />
+    <link rel="stylesheet" href="http://demo.geekslabs.com/materialize-v1.0/js/plugins/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="http://demo.geekslabs.com/materialize-v1.0/js/plugins/chartist-js/chartist.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+    <style>
+        body {
+            margin-bottom: 100px;
+        }
+        .sweet-alert h2 {
+            font-family: 'Khmer OS Freehand';
+            color: #26a69a;
+        }
+        .sweet-alert button{
+            font-family: 'Khmer OS Freehand';
+            color: white;
+        }
+          
+        #footer {
+            padding-top: 10px;
+            padding-bottom: 0px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-top: 130px;
+            height: 100px;
+        }
+
+        .icon-style {
+            color: white;
+            font-family: 'Khmer OS Freehand';
+        }
+
+        .bottom-menu a:hover {
+            text-decoration: none;
+        }
+
+        .hvr-underline-from-center:before {
+            background: #00796b;
+        }
+
+        .form-label {
+            font-family: 'Khmer OS Freehand';
+        }
+
+        tr th  {
+            font-family: 'Khmer OS Freehand';
+        }
+        tr td {
+            font-family: 'Khmer OS Freehand';
+        }
+        
+    </style>
+</head>
+<body>
+
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="teal lighten-1 navbar-fixed-top" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer class="teal lighten-1 page-footer navbar-fixed-buttom" id="footer" style="z-index:100;">
+            <div class="container">
+                <div class="row bottom-menu">
+                    <div class="col s2 offset-s1">
+                        <a href="Default.aspx">
+                            <div style="text-align: center;" class="icon-style">
+                                <i class="material-icons waves-effect medium ">home</i>
+                                <div>ទំព័រដើម</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s2">
+                        <a href="Sale.aspx">
+                            <div style="text-align: center;" class="icon-style">
+                                <i class="material-icons waves-effect medium ">store</i>
+                                <div>លក់</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s2">
+                        <a href="Data.aspx">
+                            <div style="text-align: center;" class="icon-style">
+                                <i class="material-icons waves-effect medium ">assessment</i>
+                                <div>ទិន្ន័យ</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s2">
+                        <a href="Report.apsx">
+                            <div style="text-align: center;" class="icon-style">
+                                <i class="material-icons waves-effect medium ">assignment</i>
+                                <div>របាយការណ៍</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s2">
+                        <a href="Setting.aspx">
+                            <div style="text-align: center;" class="icon-style">
+                                <i class="material-icons waves-effect medium ">settings</i>
+                                <div>ការកំណត់</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+
+        <script type="text/javascript" src="http://demo.geekslabs.com/materialize-v1.0/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="http://demo.geekslabs.com/materialize-v1.0/js/plugins/jquery-validation/additional-methods.min.js"></script>
+
+        <%--<script type="text/javascript" src="http://demo.geekslabs.com/materialize-v1.0/js/plugins.min.js"></script>--%>
+
+        <script type="text/javascript" src="http://demo.geekslabs.com/materialize/v2.1/layout03/js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
+        
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert/1.1.3/sweetalert.min.js"></script>
+    
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+</body>
+</html>
